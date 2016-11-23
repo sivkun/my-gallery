@@ -4,6 +4,7 @@ require('styles/App.scss');
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ImgFigure from './ImgFigure';
+import ControllerUnit from './ControllerUnit';
 //获取相关图片数据
 var imageDatas= require('../data/imageData.json');
 //在数据中加入图片URL路径信息
@@ -138,6 +139,7 @@ class AppComponent extends React.Component {
             isCenter:false
           };
         }
+       // debugger;
         if(imgsArrangeTopArr&&imgsArrangeTopArr[0]){
             imgsArrangeArr.splice(topImgSpliceIndex,0,imgsArrangeTopArr[0]);
             console.log(topImgSpliceIndex);
@@ -215,6 +217,9 @@ class AppComponent extends React.Component {
       ImgFigures.push(<ImgFigure key={index} data={element} id={'imgFigure'+index} ref={'imgFigure'+index}
       arrange={this.state.imgsArrangeArr[index]} inverse={this.inverse(index)}
       center={this.center(index)}/>);
+
+      controllerUnits.push(<ControllerUnit key={index} arrange={this.state.imgsArrangeArr[index]}
+      inverse={this.inverse(index)} center={this.center(index)}/>)
     });
 
     return (
